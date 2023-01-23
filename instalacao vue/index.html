@@ -14,8 +14,15 @@
     <!-- elemento principal que vai inicializar o vue -->
     <!--id app para chamar no js-->
     <div id="app">
-    <!--vai buscar o nome do js, e ele la chama-se name dai o name entre {{}}-->
-    <p>O meu nome é {{ name }} e tenho {{ age }} anos</p>
+        <form id="app-form">
+            <!--dizer ao vue onde guardar o valor do input no v-model-->
+            <input type="text" v-model="input_name" placeholder="Digite o nome">
+            <input type="submit"  value="Enviar" v-on:click="submitForm">
+        </form>
+        <!--vai buscar o nome do js, e ele la chama-se name dai o name entre {{}}-->
+        <p>O meu nome é {{ name }}</p>
+        <!-- ele vai atualizar a cada momento q algo e escrito no input pq o input name e o valor definido no app.js-->
+        <p>Data binding: {{input_name}}</p>
     </div>
 </body>
 </html>
