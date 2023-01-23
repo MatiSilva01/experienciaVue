@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <!-- link do vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js" defer></script>
+    <!-- o nosso javascript e defere p ser carregado apos o javascript-->
+    <script src="src/app.js" defer></script>
+</head>
+<body>
+    <!-- elemento principal que vai inicializar o vue -->
+    <!--id app para chamar no js-->
+    <div id="app">
+    <!--vai buscar o nome do js, e ele la chama-se name dai o name entre {{}}-->
+    <p>O meu nome é {{ name }} e tenho {{ age }} anos</p>
+    </div>
+</body>
+</html>
