@@ -1,5 +1,8 @@
 <template>
+<div>
+  <p> Estamos a fazer um {{ testando }} </p>
 <primeiro-componente />
+</div>
 </template>
 <!--para ele saber, como no main.js -->
 <script>
@@ -9,6 +12,11 @@ export default {
   name: 'App',
   components: { //os componentes vue que vou utilizar
     primeiroComponente
+  },
+  data() {
+    return {
+      testando: "teste"
+    }
   }
 }
 </script>
