@@ -21,7 +21,7 @@
 <p v-if="4 > 2">Teste</p>
 <!--para por o link em vue preciso do v-bind: antes pq e um dado dinamico -->
 <!-- existe uma sintaxe resumida p o v-bind que e por so : como se pode ver no Picture.vue -->
-<p>Para ir ao meu portfolio clique <a v-bind:href="meuLink"> aqui </a></p>
+<p class="teste">Para ir ao meu portfolio clique <a v-bind:href="meuLink"> aqui </a></p>
 <PictureI />
 </div>
 

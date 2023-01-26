@@ -1,5 +1,6 @@
 <template>
 <div>
+  <Header />
   <p> Estamos a fazer um {{ testando }} </p>
 <primeiro-componente />
 <!-- os componentes criados -->
@@ -13,10 +14,12 @@
 import primeiroComponente from './components/primeiroComponente.vue'
 import LifeCycle from './components/LifeCycle.vue'
 import Pessoa from './components/Pessoa.vue'
+import Header from './components/Header.vue'
 export default {
   name: 'App',
   components: { //os componentes vue que vou utilizar
     primeiroComponente,
+    Header,
     LifeCycle, 
     Pessoa
   },
@@ -27,3 +30,17 @@ export default {
   }
 }
 </script>
+
+<style>
+body{
+  color: #FFF;
+  background-color: #333;
+}
+a{ 
+  color: brown;
+}
+
+.teste{
+  background-color: black;
+}
+</style>
