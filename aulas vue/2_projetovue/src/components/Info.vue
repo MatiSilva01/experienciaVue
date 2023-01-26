@@ -15,17 +15,26 @@
 <p v-show="mostrar_email">Mande uma mensagem para {{email}}</p>
 <!--o que esta la dentro das aspas é interpretado como javascript -->
 <p v-if="4 > 2">Teste</p>
+<!--para por o link em vue preciso do v-bind: antes pq e um dado dinamico -->
+<!-- existe uma sintaxe resumida p o v-bind que e por so : como se pode ver no Picture.vue -->
+<p>Para ir ao meu portfolio clique <a v-bind:href="meuLink"> aqui </a></p>
+<PictureI />
 </div>
 
 </template>
 <script>
+import PictureI from './Picture.vue'
 export default {
     name: 'InfoI',
+    components: {
+        PictureI
+    },
     data() {
         return {
             esta_trabalhando: false,
             mostrar_email: true,
-            email: 'mati@g.c'
+            email: 'mati@g.c',
+            meuLink: 'https://google.com'
         }
     }
 }
