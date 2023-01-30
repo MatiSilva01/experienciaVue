@@ -1,5 +1,7 @@
 <template>
 <div>
+    <!--onde vai aparecer na pagina o valor guardado no componenteEmail//props-->
+    <p>{{ componenteEmail }}</p>
     <!--um if, so mostra esse paragrafo e a variavel esta trabalhando for = true-->
     <p v-if="esta_trabalhando">Estou trabalhando no momento </p>
     <p v-else>Esta desempregado</p>
@@ -41,12 +43,16 @@ export default {
     components: {
         PictureI
     },
+    //como se passa dados
+    props: {
+        //leva o tipo 
+        email: String
+    },
     //o que ele exporta de dados
     data() {
         return {
             esta_trabalhando: false,
             mostrar_email: false,
-            email: 'mati@g.c',
             meuLink: 'https://google.com',
             textoBotao:'Mostrar e-mail',
             //aqui fazemos tudo como string
