@@ -1,5 +1,6 @@
 <template>
     <div id="burger-table" v-if="burgers">
+      <Message :msg="msg" v-show="msg" />
       <div>
         <div id="burger-table-heading">
           <div class="order-id">#:</div>
@@ -22,6 +23,7 @@
             </ul>
           </div>
           <div>
+            <!-- o change para qd houver mudanca ele chamar o metodo updateburger-->
             <select name="status" class="status" @change="updateBurger($event, burger.id)">
               <option :value="s.tipo" v-for="s in status" :key="s.id" :selected="burger.status == s.tipo">
                 {{ s.tipo }}
@@ -37,14 +39,19 @@
     </div>
   </template>
   <script>
+  import Message from './Message.vue'
     export default {
       name: "Dashboard",
       data() {
         return {
           burgers: null,
           burger_id: null,
-          status: []
+          status: [], 
+          msg: null
         }
+      },
+      components: {
+        Message
       },
       methods: {
         async getPedidos() {
@@ -59,32 +66,37 @@
   
         },
         async getStatus() {
-  
-          const req = await fetch('http://localhost:3000/status')
-  
+          const req = await fetch('http://localhost:3000/status') //vai buscar a rota 
+          //status, as rotas que ha sao as que estao em bd.json
           const data = await req.json()
-  
           this.status = data
-  
         },
         async deleteBurger(id) {
-  
           const req = await fetch(`http://localhost:3000/burgers/${id}`, {
             method: "DELETE"
           });
-  
           const res = await req.json()
-  
-          this.getPedidos()
+          //para aparecer a mensagem
+          //nao sei pq nao funciona com ` `entao feito 2 x
+        this.msg =`Pedido foi atulizado para ${res.status}`
+        this.msg = "Pedido atualizado"
+        // apaga a mesagem apos 3 seg
+        setTimeout(() => this.msg = "", 3000)
+          //para obrigar a voltar a atualizar os pedidos depois
+          //de se apagar
+          this.getPedidos();
   
         },
+
         async updateBurger(event, id) {
-  
+          //buscar o valor que o user pos
           const option = event.target.value;
-  
+          //poe em string o json de STATUS
           const dataJson = JSON.stringify({status: option});
-  
+          //faz a requisicao do hamburguer correto, vai ao bd a esse hamburguer
+          //com esse ID mudar o statuas
           const req = await fetch(`http://localhost:3000/burgers/${id}`, {
+           //patch e como o update mas atualiza so o q foi enviado, nao tudo
             method: "PATCH",
             headers: { "Content-Type" : "application/json" },
             body: dataJson

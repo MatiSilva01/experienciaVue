@@ -79,23 +79,13 @@
   ],
   "burgers": [
     {
-      "nome": "s",
-      "carne": "Alcatra",
-      "pao": "3 Queijos",
-      "opcionais": [
-        "Cheddar"
-      ],
-      "status": "Solicitado",
-      "id": 1
-    },
-    {
       "nome": "mati",
       "carne": "Alcatra",
       "pao": "Italiano Branco",
       "opcionais": [
         "Cheddar"
       ],
-      "status": "Solicitado",
+      "status": "Finalizado",
       "id": 2
     },
     {
@@ -103,16 +93,8 @@
       "carne": "Maminha",
       "pao": "Italiano Branco",
       "opcionais": [],
-      "status": "Solicitado",
+      "status": "Em produção",
       "id": 3
-    },
-    {
-      "nome": "p",
-      "carne": null,
-      "pao": "3 Queijos",
-      "opcionais": [],
-      "status": "Solicitado",
-      "id": 4
     },
     {
       "nome": "Maria",
